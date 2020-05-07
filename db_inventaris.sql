@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2020 at 07:14 PM
+-- Generation Time: May 07, 2020 at 03:28 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -97,6 +97,7 @@ CREATE TABLE `master_stok_atk` (
   `merk_atk` varchar(100) NOT NULL,
   `jenis_atk` varchar(100) NOT NULL,
   `stok_atk` int(11) NOT NULL,
+  `tgl_masuk` date NOT NULL,
   `foto_atk` varchar(100) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime NOT NULL DEFAULT current_timestamp()
@@ -106,8 +107,9 @@ CREATE TABLE `master_stok_atk` (
 -- Dumping data for table `master_stok_atk`
 --
 
-INSERT INTO `master_stok_atk` (`id_stok`, `kode_atk`, `nama_atk`, `merk_atk`, `jenis_atk`, `stok_atk`, `foto_atk`, `date_created`, `date_updated`) VALUES
-(2, '31/23/2323', 'Kertas A4 Sidu', 'Sidu 80 Gram', 'Kertas A4 80 gram', 0, 'kertas.jpg', '2020-04-27 20:39:35', '2020-04-27 20:40:15');
+INSERT INTO `master_stok_atk` (`id_stok`, `kode_atk`, `nama_atk`, `merk_atk`, `jenis_atk`, `stok_atk`, `tgl_masuk`, `foto_atk`, `date_created`, `date_updated`) VALUES
+(2, '31/23/2323', 'Kertas A4 Sidu', 'Sidu 80 Gram', 'Kertas A4 80 gram', 0, '2020-05-13', 'kertas.jpg', '2020-04-27 20:39:35', '2020-04-27 20:40:15'),
+(3, '31/0001/A4/100', 'Kertas A4 Sidu', 'Sidu 80 Gram', 'Kertas A4 80 gram', 6, '2020-05-08', 'kertas1.jpg', '2020-05-07 13:02:51', '2020-05-07 13:02:51');
 
 -- --------------------------------------------------------
 
@@ -122,6 +124,9 @@ CREATE TABLE `master_stok_hardware` (
   `merk_barang` varchar(100) NOT NULL,
   `jenis_barang` varchar(50) NOT NULL,
   `kondisi_barang` enum('Baik','Rusak') NOT NULL,
+  `tgl_masuk` date NOT NULL,
+  `tgl_pengembalian` date DEFAULT NULL,
+  `status_pengembalian` tinyint(1) NOT NULL DEFAULT 0,
   `foto_barang` varchar(150) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime NOT NULL DEFAULT current_timestamp()
@@ -131,8 +136,9 @@ CREATE TABLE `master_stok_hardware` (
 -- Dumping data for table `master_stok_hardware`
 --
 
-INSERT INTO `master_stok_hardware` (`id_stok`, `kode_barang`, `nama_barang`, `merk_barang`, `jenis_barang`, `kondisi_barang`, `foto_barang`, `date_created`, `date_updated`) VALUES
-(5, '31/00001/KYBRD/001', 'Keyboard Logitech', 'Rezer', 'Keyboard', 'Baik', 'rezer.jpg', '2020-04-26 19:05:40', '2020-04-26 19:05:40');
+INSERT INTO `master_stok_hardware` (`id_stok`, `kode_barang`, `nama_barang`, `merk_barang`, `jenis_barang`, `kondisi_barang`, `tgl_masuk`, `tgl_pengembalian`, `status_pengembalian`, `foto_barang`, `date_created`, `date_updated`) VALUES
+(5, '31/00001/KYBRD/001', 'Keyboard Logitech', 'Rezer', 'Keyboard', 'Rusak', '2020-05-13', '2020-05-22', 1, 'rezer.jpg', '2020-04-26 19:05:40', '2020-04-26 19:05:40'),
+(6, '31/00001/KYBRD/003', 'Keyboard Asisten', 'Logitech', 'Keyboard', 'Rusak', '2020-05-12', '2020-05-14', 1, 'demo-image.jpg', '2020-05-07 12:56:54', '2020-05-07 12:56:54');
 
 -- --------------------------------------------------------
 
@@ -221,13 +227,13 @@ ALTER TABLE `master_komputer`
 -- AUTO_INCREMENT for table `master_stok_atk`
 --
 ALTER TABLE `master_stok_atk`
-  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `master_stok_hardware`
 --
 ALTER TABLE `master_stok_hardware`
-  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
