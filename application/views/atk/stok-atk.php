@@ -39,6 +39,7 @@
                                     <th class="text-center">Merk ATK</th>
                                     <th class="text-center">Jenis ATK</th>
                                     <th class="text-center">Stok ATK</th>
+                                    <th class="text-center">Tanggal Masuk</th>
                                     <th class="text-center">Foto ATK</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -60,6 +61,8 @@
                                     <?php else : ?>
                                         <td class="text-center text-danger"><?= $item['kondisi_barang'] ?></td>
                                     <?php endif; ?> -->
+                                    <?php $date = date_create($item['tgl_masuk']) ?>
+                                    <td class="text-center"><?= date_format($date, 'd-m-Y') ?></td>
                                     <td class="text-center">
                                         <a href="#" class="pop-image">
                                             <img id="imgsource" src="<?= base_url('assets/dist/img/atk/') . $item['foto_atk'] ?>" alt="foto-stok" width="80">

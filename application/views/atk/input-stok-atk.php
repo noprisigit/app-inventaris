@@ -55,6 +55,11 @@
                                 <?= form_error('stok_atk', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="form-group">
+                                <label for="merk-barang">Tanggal Masuk</label>
+                                <input type="date" class="form-control" name="tgl_masuk">
+                                <?= form_error('tgl_masuk', '<small class="text-danger">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="foto-barang">Foto Barang</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="foto_atk">

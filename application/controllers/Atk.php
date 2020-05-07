@@ -36,6 +36,9 @@ class Atk extends CI_Controller {
         $this->form_validation->set_rules('merk_atk', 'Merk atk', 'trim|required', [
             'required'  => '%s harus diisi',
         ]);
+        $this->form_validation->set_rules('tgl_masuk', 'Tanggal masuk atk', 'trim|required', [
+            'required'  => '%s harus diisi',
+        ]);
         $this->form_validation->set_rules('stok_atk', 'Stok atk', 'trim|required', [
             'required'  => '%s harus diisi',
         ]);
@@ -72,6 +75,7 @@ class Atk extends CI_Controller {
                 'merk_atk'       => $this->input->post('merk_atk'),
                 'jenis_atk'      => $this->input->post('jenis_atk'),
                 'stok_atk'       => $this->input->post('stok_atk'),
+                'tgl_masuk'      => $this->input->post('tgl_masuk'),
                 'foto_atk'       => $foto_atk
             ];
 
