@@ -39,6 +39,7 @@
                                     <th class="text-center">Merk Barang</th>
                                     <th class="text-center">Jenis Barang</th>
                                     <th class="text-center">Kondisi Barang</th>
+                                    <th class="text-center">Tanggal Masuk</th>
                                     <th class="text-center">Foto Barang</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -59,6 +60,8 @@
                                     <?php else : ?>
                                         <td class="text-center text-danger"><?= $item['kondisi_barang'] ?></td>
                                     <?php endif; ?>
+                                    <?php $date = date_create($item['tgl_masuk']) ?>
+                                    <td class="text-center"><?= date_format($date, 'd-m-Y') ?></td>
                                     <td class="text-center">
                                         <a href="#" class="pop-image">
                                             <img id="imgsource" src="<?= base_url('assets/dist/img/hardware/') . $item['foto_barang'] ?>" alt="" width="80">
