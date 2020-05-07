@@ -44,6 +44,9 @@ class Hardware extends CI_Controller {
         $this->form_validation->set_rules('merk_barang', 'Merk barang', 'trim|required', [
             'required'  => '%s harus diisi',
         ]);
+        $this->form_validation->set_rules('tgl_masuk', 'Tanggal barang masuk', 'trim|required', [
+            'required'  => '%s harus diisi',
+        ]);
         $this->form_validation->set_rules('kondisi_barang', 'Kondisi barang', 'trim|required', [
             'required'  => '%s harus diisi',
         ]);
@@ -80,6 +83,7 @@ class Hardware extends CI_Controller {
                 'merk_barang'       => $this->input->post('merk_barang'),
                 'jenis_barang'      => $this->input->post('jenis_barang'),
                 'kondisi_barang'    => $this->input->post('kondisi_barang'),
+                'tgl_masuk'         => $this->input->post('tgl_masuk'),
                 'foto_barang'       => $foto_barang
             ];
 

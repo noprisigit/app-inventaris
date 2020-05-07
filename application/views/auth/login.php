@@ -62,9 +62,9 @@
                     </div>
                 </form>
 
-                <p class="mb-1 text-center">
+                <!-- <p class="mb-1 text-center">
                     <a href="<?= base_url('auth/forgot-password'); ?>">I forgot my password</a>
-                </p>
+                </p> -->
                 <p class="mb-0 text-center">
                     <a href="<?= base_url('auth/registration'); ?>" class="text-center">Register a new membership</a>
                 </p>
