@@ -58,6 +58,30 @@
                 $('.graphic-card').html($(this).data('graphic_card'));
                 $('.penyimpanan').html($(this).data('penyimpanan'));
             });
+
+            $('.btn-pengembalian').on('click', function() {
+                $('#modal-pengembalian').modal('show');
+
+                const url = "<?= base_url('assets/dist/img/hardware') ?>";
+
+                $('#pengembalian-kd-barang').html(': ' + $(this).data('kode'));
+                $('#pengembalian-nama-barang').html(': ' + $(this).data('nama'));
+                $('#pengembalian-merk-barang').html(': ' + $(this).data('merk'));
+                $('#pengembalian-jenis-barang').html(': ' + $(this).data('jenis'));
+                $('#pengembalian-kondisi-barang').html(': ' + $(this).data('kondisi'));
+                $('#pengembalian-tgl-barang').html(': ' + $(this).data('tgl'));
+                $('#pengembalian-gambar-barang').attr('src', "<?= base_url('assets/dist/img/hardware/') ?>" + $(this).data('gambar'));
+                $('#id_stok').attr('value', $(this).data('id'));
+            });
+
+            // $('#form-pengembalian').submit(function(e) {
+            //     const tgl = $(this).val('#pengembalian-tgl-pengembalian');
+
+            //     if (tgl == "") {
+            //         e.preventDefault();
+            //         alert('Harap masukkan tanggal pengembalian');
+            //     }
+            // });
         });
     </script>
 </body>

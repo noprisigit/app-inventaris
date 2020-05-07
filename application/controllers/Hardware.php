@@ -253,4 +253,31 @@ class Hardware extends CI_Controller {
         $this->load->view('hardware/detail-hardware', $data);
         $this->load->view('template/footer');
     }
+
+    public function pengembalian_hardware()
+    {
+        $data['title'] = "Hardware";
+        $data['second_title'] = "Pengembalian Hardware";
+        $data['stok_hardware'] = $this->db->get_where('master_stok_hardware', ['status_pengembalian' => 1])->result_array();
+
+        $this->load->view('template/header', $data);
+        $this->load->view('hardware/pengembalian-hardware');
+        $this->load->view('template/footer');
+    }
+
+    public function pengembalian_proses()
+    {
+        // print_r($this->input->post());
+        // exit;
+        $this->db->set('tgl_pengembalian', $this->input->post('tgl_pengembalian'));
+        $this->db->set('status_pengembalian', 1);
+        $this->db->where('id_stok', $this->input->post('id_stok'));
+        $this->db->update('master_stok_hardware');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Success!</h5> Pengembalian Barang Berhasil Dilakukan.
+        </div>');
+        redirect('hardware/pengembalian_hardware');
+    }
 }

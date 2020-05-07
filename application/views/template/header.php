@@ -119,6 +119,12 @@
                                                 <p style="color: black">Hardware Rusak</p>
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="<?= base_url('hardware/pengembalian-hardware') ?>" class="nav-link <?= $second_title == 'Pengembalian Hardware' ? 'active' : '' ?>">
+                                                <i style="color: black" class="far fa-dot-circle nav-icon"></i>
+                                                <p style="color: black">Pengembalian Hardware</p>
+                                            </a>
+                                        </li>
                                         <!-- <li class="nav-item">
                                             <a href="<?= base_url('hardware/detail-hardware') ?>" class="nav-link">
                                                 <i style="color: black" class="far fa-dot-circle nav-icon"></i>
